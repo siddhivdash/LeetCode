@@ -2,11 +2,15 @@ import math
 from typing import List
 class Solution:
     def pickGifts(self, gifts: List[int], k: int) -> int: 
+        max_heap= [-g for g in gifts]
+        heapq.heapify(max_heap)
         for _ in range(k):
-            max_gif = max(gifts)
-            indesex= gifts.index(max_gif)
-            gifts[indesex] = math.isqrt(max_gif)
-        return sum(gifts)
+            largest = -heapq.heappop(max_heap)
+            rem = int(isqrt(largest))
+            heapq.heappush(max_heap, -rem)
+
+        return -sum(max_heap)
+
             
 
         
