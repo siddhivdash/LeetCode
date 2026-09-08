@@ -8,8 +8,8 @@ class Solution:
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
         if not root:
             return []
-        q = deque([root])
         res = []
+        q = deque([root])
         while q:
             levels = []
             for _ in range(len(q)):
